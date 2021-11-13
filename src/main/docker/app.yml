@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  ncl-app:
+    build: ../../..
+    container_name: ncl-app
+    environment:
+    ports:
+      - 8081:8081
