@@ -39,11 +39,18 @@
     "messageBroker": false,
     "clientPackageManager": "npm",
     "clientThemeVariant": "",
-    "otherModules": [],
+    "otherModules": [
+      {
+        "name": "generator-jhipster-nodejs",
+        "version": "2.0.0"
+      }
+    ],
     "cacheProvider": "ehcache",
     "buildTool": "maven",
     "enableHibernateCache": true,
     "reactive": false,
-    "languages": ["en", "fr"]
+    "languages": ["en", "fr"],
+    "entities": ["Tag", "Pet", "Order", "Category", "Url"],
+    "lastLiquibaseTimestamp": 1637029320000
   }
 }

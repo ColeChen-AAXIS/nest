@@ -1,0 +1,49 @@
+{
+  "name": "Pet",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "PetStatus",
+      "fieldValues": "available,pending,sold"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "category",
+      "otherEntityRelationshipName": "pet",
+      "relationshipName": "category",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "url",
+      "otherEntityRelationshipName": "pet",
+      "relationshipName": "photoUrls"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "tag",
+      "otherEntityRelationshipName": "pet",
+      "relationshipName": "tags"
+    }
+  ],
+  "entityTableName": "pet",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20211116022157"
+}

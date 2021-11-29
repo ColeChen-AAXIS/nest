@@ -1,0 +1,78 @@
+
+entity User {
+	    id  Long 
+    username  String 
+    firstName  String 
+    lastName  String 
+    email  String 
+    password  String 
+    phone  String 
+    userStatus  Integer
+}
+
+entity Tag {
+	id  Long
+    name String
+}
+
+
+entity Pet {
+	id  Long
+    name  String
+    status PetStatus
+}
+
+entity Order {
+	id Long
+    quantity Integer
+    shipDate Instant
+    status OrderStatus
+    complete Boolean
+}
+
+
+entity Category {
+    id  Long
+    name  String
+}
+
+
+
+
+
+enum OrderStatus {
+    PLACED , 
+    APPROVED , 
+    DELIVERED 
+}
+
+enum PetStatus {
+    AVAILABLE, 
+    PENDING , 
+    SOLD
+}
+
+entity Url {
+    name  String
+}
+
+
+relationship OneToOne {
+	Pet{category} to Category
+}
+
+relationship OneToOne {
+    Order{petId} to Pet
+}
+
+relationship OneToMany {
+	Pet{photoUrls} to Url
+
+}
+
+relationship OneToMany {
+	User{orders} to Order
+    Pet{tags} to Tag
+}
+
+service all with serviceImpl
