@@ -12,19 +12,19 @@ function ormConfig(): TypeOrmModuleOptions {
     };
 
     let ormconfig: TypeOrmModuleOptions = {
-      name: 'default',
-      type: 'mysql',
-      database: 'ncl',
-      host: 'localhost',
-      port: 3307,
-      username: 'sa',
-      password: 'yourStrong(!)Password',
-      logging: true,
-      synchronize: commonConf.SYNCRONIZE,
-      entities: commonConf.ENTITIES,
-      migrations: commonConf.MIGRATIONS,
-      cli: commonConf.CLI,
-      migrationsRun: commonConf.MIGRATIONS_RUN,
+        name: 'default',
+        type: 'mysql',
+        database: 'ncl',
+        host: 'localhost',
+        port: 3307,
+        username: 'sa',
+        password: 'yourStrong(!)Password',
+        logging: true,
+        synchronize: commonConf.SYNCRONIZE,
+        entities: commonConf.ENTITIES,
+        migrations: commonConf.MIGRATIONS,
+        cli: commonConf.CLI,
+        migrationsRun: commonConf.MIGRATIONS_RUN,
     };
 
     if (process.env.BACKEND_ENV === 'prod') {

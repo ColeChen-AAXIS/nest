@@ -12,7 +12,7 @@ export class Tag extends BaseEntity {
     @Column({ name: 'name', nullable: true })
     name: string;
 
-    @ManyToMany((type) => Pet)
+    @ManyToMany(type => Pet)
     pets: Pet[];
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

@@ -41,7 +41,11 @@ describe('Tag Controller', () => {
     });
 
     it('/GET all tags ', async () => {
-        const getEntities: TagDTO[] = (await request(app.getHttpServer()).get('/api/tags').expect(200)).body;
+        const getEntities: TagDTO[] = (
+            await request(app.getHttpServer())
+                .get('/api/tags')
+                .expect(200)
+        ).body;
 
         expect(getEntities).toEqual(entityMock);
     });
@@ -58,15 +62,22 @@ describe('Tag Controller', () => {
 
     it('/POST create tags', async () => {
         const createdEntity: TagDTO = (
-            await request(app.getHttpServer()).post('/api/tags').send(entityMock).expect(201)
+            await request(app.getHttpServer())
+                .post('/api/tags')
+                .send(entityMock)
+                .expect(201)
         ).body;
 
         expect(createdEntity).toEqual(entityMock);
     });
 
     it('/PUT update tags', async () => {
-        const updatedEntity: TagDTO = (await request(app.getHttpServer()).put('/api/tags').send(entityMock).expect(201))
-            .body;
+        const updatedEntity: TagDTO = (
+            await request(app.getHttpServer())
+                .put('/api/tags')
+                .send(entityMock)
+                .expect(201)
+        ).body;
 
         expect(updatedEntity).toEqual(entityMock);
     });

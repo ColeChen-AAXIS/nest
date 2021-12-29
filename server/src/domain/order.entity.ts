@@ -24,11 +24,11 @@ export class Order extends BaseEntity {
     @Column({ type: 'boolean', name: 'complete', nullable: true })
     complete: boolean;
 
-    @OneToOne((type) => Pet)
+    @OneToOne(type => Pet)
     @JoinColumn()
     petId: Pet;
 
-    @ManyToOne((type) => User)
+    @ManyToOne(type => User)
     user: User;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

@@ -19,7 +19,6 @@ export class PetService {
         return PetMapper.fromEntityToDTO(result);
     }
 
-
     async findByFields(options: FindOneOptions<PetDTO>): Promise<PetDTO | undefined> {
         const result = await this.petRepository.findOne(options);
         return PetMapper.fromEntityToDTO(result);
@@ -30,7 +29,7 @@ export class PetService {
         const resultList = await this.petRepository.findAndCount(options);
         const petDTO: PetDTO[] = [];
         if (resultList && resultList[0]) {
-            resultList[0].forEach((pet) => petDTO.push(PetMapper.fromEntityToDTO(pet)));
+            resultList[0].forEach(pet => petDTO.push(PetMapper.fromEntityToDTO(pet)));
             resultList[0] = petDTO;
         }
         return resultList;

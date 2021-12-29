@@ -30,7 +30,7 @@ export class UrlService {
         const resultList = await this.urlRepository.findAndCount(options);
         const urlDTO: UrlDTO[] = [];
         if (resultList && resultList[0]) {
-            resultList[0].forEach((url) => urlDTO.push(UrlMapper.fromEntityToDTO(url)));
+            resultList[0].forEach(url => urlDTO.push(UrlMapper.fromEntityToDTO(url)));
             resultList[0] = urlDTO;
         }
         return resultList;

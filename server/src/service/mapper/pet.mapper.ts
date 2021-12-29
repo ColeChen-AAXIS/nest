@@ -9,9 +9,9 @@ export class PetMapper {
         if (!entityDTO) {
             return;
         }
-        let entity = new Pet();
+        const entity = new Pet();
         const fields = Object.getOwnPropertyNames(entityDTO);
-        fields.forEach((field) => {
+        fields.forEach(field => {
             entity[field] = entityDTO[field];
         });
         return entity;
@@ -21,11 +21,11 @@ export class PetMapper {
         if (!entity) {
             return;
         }
-        let entityDTO = new PetDTO();
+        const entityDTO = new PetDTO();
 
         const fields = Object.getOwnPropertyNames(entity);
 
-        fields.forEach((field) => {
+        fields.forEach(field => {
             entityDTO[field] = entity[field];
         });
 

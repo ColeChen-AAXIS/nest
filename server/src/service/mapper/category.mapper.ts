@@ -9,9 +9,9 @@ export class CategoryMapper {
         if (!entityDTO) {
             return;
         }
-        let entity = new Category();
+        const entity = new Category();
         const fields = Object.getOwnPropertyNames(entityDTO);
-        fields.forEach((field) => {
+        fields.forEach(field => {
             entity[field] = entityDTO[field];
         });
         return entity;
@@ -21,11 +21,11 @@ export class CategoryMapper {
         if (!entity) {
             return;
         }
-        let entityDTO = new CategoryDTO();
+        const entityDTO = new CategoryDTO();
 
         const fields = Object.getOwnPropertyNames(entity);
 
-        fields.forEach((field) => {
+        fields.forEach(field => {
             entityDTO[field] = entity[field];
         });
 

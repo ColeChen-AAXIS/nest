@@ -61,7 +61,7 @@ export class SeedUsersRoles1570200490072 implements MigrationInterface {
     };
 
     // eslint-disable-next-line
-  public async up(queryRunner: QueryRunner): Promise<any> {
+    public async up(queryRunner: QueryRunner): Promise<any> {
         const authorityRepository = getRepository('nhi_authority');
 
         const adminRole = await authorityRepository.save(this.role1);
@@ -79,5 +79,5 @@ export class SeedUsersRoles1570200490072 implements MigrationInterface {
     }
 
     // eslint-disable-next-line
-  public async down(queryRunner: QueryRunner): Promise<any> {}
+    public async down(queryRunner: QueryRunner): Promise<any> {}
 }

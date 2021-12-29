@@ -18,13 +18,19 @@ export class Pet extends BaseEntity {
     @Column({ type: 'simple-enum', name: 'status', enum: PetStatus })
     status: PetStatus;
 
-    @ManyToOne((type) => Category)
+    @ManyToOne(type => Category)
     category: Category;
 
-    @OneToMany((type) => Url, (other) => other.pet)
+    @OneToMany(
+        type => Url,
+        other => other.pet,
+    )
     photoUrls: Url[];
 
-    @ManyToMany((type) => Tag, (other) => other.pets)
+    @ManyToMany(
+        type => Tag,
+        other => other.pets,
+    )
     @JoinTable()
     tags: Tag[];
 

@@ -41,7 +41,11 @@ describe('Category Controller', () => {
     });
 
     it('/GET all categories ', async () => {
-        const getEntities: CategoryDTO[] = (await request(app.getHttpServer()).get('/api/categories').expect(200)).body;
+        const getEntities: CategoryDTO[] = (
+            await request(app.getHttpServer())
+                .get('/api/categories')
+                .expect(200)
+        ).body;
 
         expect(getEntities).toEqual(entityMock);
     });
@@ -58,7 +62,10 @@ describe('Category Controller', () => {
 
     it('/POST create categories', async () => {
         const createdEntity: CategoryDTO = (
-            await request(app.getHttpServer()).post('/api/categories').send(entityMock).expect(201)
+            await request(app.getHttpServer())
+                .post('/api/categories')
+                .send(entityMock)
+                .expect(201)
         ).body;
 
         expect(createdEntity).toEqual(entityMock);
@@ -66,7 +73,10 @@ describe('Category Controller', () => {
 
     it('/PUT update categories', async () => {
         const updatedEntity: CategoryDTO = (
-            await request(app.getHttpServer()).put('/api/categories').send(entityMock).expect(201)
+            await request(app.getHttpServer())
+                .put('/api/categories')
+                .send(entityMock)
+                .expect(201)
         ).body;
 
         expect(updatedEntity).toEqual(entityMock);

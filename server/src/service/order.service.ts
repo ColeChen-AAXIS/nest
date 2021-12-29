@@ -30,7 +30,7 @@ export class OrderService {
         const resultList = await this.orderRepository.findAndCount(options);
         const orderDTO: OrderDTO[] = [];
         if (resultList && resultList[0]) {
-            resultList[0].forEach((order) => orderDTO.push(OrderMapper.fromEntityToDTO(order)));
+            resultList[0].forEach(order => orderDTO.push(OrderMapper.fromEntityToDTO(order)));
             resultList[0] = orderDTO;
         }
         return resultList;

@@ -9,9 +9,9 @@ export class OrderMapper {
         if (!entityDTO) {
             return;
         }
-        let entity = new Order();
+        const entity = new Order();
         const fields = Object.getOwnPropertyNames(entityDTO);
-        fields.forEach((field) => {
+        fields.forEach(field => {
             entity[field] = entityDTO[field];
         });
         return entity;
@@ -21,11 +21,11 @@ export class OrderMapper {
         if (!entity) {
             return;
         }
-        let entityDTO = new OrderDTO();
+        const entityDTO = new OrderDTO();
 
         const fields = Object.getOwnPropertyNames(entity);
 
-        fields.forEach((field) => {
+        fields.forEach(field => {
             entityDTO[field] = entity[field];
         });
 

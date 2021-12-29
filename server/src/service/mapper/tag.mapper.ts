@@ -9,9 +9,9 @@ export class TagMapper {
         if (!entityDTO) {
             return;
         }
-        let entity = new Tag();
+        const entity = new Tag();
         const fields = Object.getOwnPropertyNames(entityDTO);
-        fields.forEach((field) => {
+        fields.forEach(field => {
             entity[field] = entityDTO[field];
         });
         return entity;
@@ -21,11 +21,11 @@ export class TagMapper {
         if (!entity) {
             return;
         }
-        let entityDTO = new TagDTO();
+        const entityDTO = new TagDTO();
 
         const fields = Object.getOwnPropertyNames(entity);
 
-        fields.forEach((field) => {
+        fields.forEach(field => {
             entityDTO[field] = entity[field];
         });
 

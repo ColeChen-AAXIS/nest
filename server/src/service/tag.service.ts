@@ -30,7 +30,7 @@ export class TagService {
         const resultList = await this.tagRepository.findAndCount(options);
         const tagDTO: TagDTO[] = [];
         if (resultList && resultList[0]) {
-            resultList[0].forEach((tag) => tagDTO.push(TagMapper.fromEntityToDTO(tag)));
+            resultList[0].forEach(tag => tagDTO.push(TagMapper.fromEntityToDTO(tag)));
             resultList[0] = tagDTO;
         }
         return resultList;
