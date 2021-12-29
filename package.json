@@ -16,7 +16,6 @@
     "e2e:headless": "npm run e2e:protractor:headless",
     "e2e:protractor:headless": "npm run e2e:protractor",
     "e2e:protractor": "protractor src/test/javascript/protractor.conf.js",
-    "preinstall": "cd server && npm run lint:fix",
     "postinstall": "npm run e2e:update-webdriver",
     "e2e:update-webdriver": "webdriver-manager update --gecko false",
     "jest": "jest --coverage --logHeapUsage --maxWorkers=2 --config jest.conf.js",
@@ -42,7 +41,9 @@
     "ci:frontend:test": "npm run webapp:build:$npm_package_config_default_environment && npm run test-ci",
     "ci:server:await": "echo \"Waiting for server at port $npm_package_config_backend_port to start\" && wait-on http-get://localhost:$npm_package_config_backend_port/management/health && echo \"Server at port $npm_package_config_backend_port started\"",
     "ci:e2e:run": "concurrently -k -s first \"npm run ci:e2e:server:start\" \"npm run e2e:headless\"",
-    "e2e:dev": "concurrently -k -s first \"./mvnw\" \"e2e\""
+    "e2e:dev": "concurrently -k -s first \"./mvnw\" \"e2e\"",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "config": {
     "default_environment": "prod"
@@ -79,6 +80,11 @@
     "uuid": "8.3.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.5",
+    "@storybook/addon-actions": "^6.4.9",
+    "@storybook/addon-essentials": "^6.4.9",
+    "@storybook/addon-links": "^6.4.9",
+    "@storybook/react": "^6.4.9",
     "@testing-library/react": "11.2.6",
     "@types/chai": "4.2.11",
     "@types/jest": "26.0.22",
@@ -94,7 +100,8 @@
     "@types/webpack-env": "1.16.0",
     "@typescript-eslint/eslint-plugin": "4.20.0",
     "@typescript-eslint/parser": "4.20.0",
-    "autoprefixer": "10.2.5",
+    "autoprefixer": "^9.8.8",
+    "babel-loader": "^8.2.3",
     "browser-sync": "2.26.14",
     "browser-sync-webpack-plugin": "2.3.0",
     "cache-loader": "4.1.0",
@@ -124,6 +131,7 @@
     "mini-css-extract-plugin": "1.4.0",
     "mocha": "7.1.2",
     "optimize-css-assets-webpack-plugin": "5.0.4",
+    "postcss": "^7.0.39",
     "postcss-loader": "5.2.0",
     "prettier": "2.2.1",
     "prettier-plugin-java": "1.0.2",
@@ -141,7 +149,7 @@
     "stripcomment-loader": "0.1.0",
     "style-loader": "2.0.0",
     "swagger-ui-dist": "3.46.0",
-    "tailwindcss": "^3.0.8",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
     "terser-webpack-plugin": "5.1.1",
     "thread-loader": "3.0.1",
     "to-string-loader": "1.1.6",
